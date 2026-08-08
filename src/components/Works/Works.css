@@ -1,5 +1,5 @@
 .works {
-  padding: 36px var(--container-padding);
+  padding: 50px var(--container-padding);
 }
 
 .works__header {
@@ -46,7 +46,7 @@
 }
 
 .work-card.large {
-  grid-column: 1 / -1;
+  grid-column: 1 / 1;
 }
 
 .work-card__image-wrapper {
@@ -57,7 +57,7 @@
 }
 
 .work-card.large .work-card__image-wrapper {
-  aspect-ratio: 20 / 12.2;
+  aspect-ratio: 20 / 15;
 }
 
 .work-card:not(.large) .work-card__image-wrapper {

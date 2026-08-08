@@ -20,9 +20,13 @@ export const Hero = () => {
           <div>
             <p className="hero__role">Дизайнер × Разработчик</p>
             <p className="hero__desc">
-              Проектирую интерфейсы, рисую макеты и <strong>сам довожу их до продакшена</strong> — с характерным дизайном и живыми анимациями.
+             <strong> Полный цикл создания сайта:</strong> интерфейс, макет, продакшен. 
+            </p>
+              <p className="hero__desc">
+             <strong>Брендинг под ключ</strong> — от 3D-визуализации до печати и web. 
             </p>
           </div>
+          
           
           <div className="hero__cta">
             <a href="#works" className="btn-primary">

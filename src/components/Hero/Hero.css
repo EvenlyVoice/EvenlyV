@@ -1,6 +1,6 @@
 .hero {
   min-height: 20vh;
-  padding: 128px var(--container-padding) 48px;
+  padding: 81px var(--container-padding) 41px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -51,21 +51,24 @@
 
 /* Верхняя строка — фиксированный размер под ширину контейнера */
 .hero__title-line:first-child {
-  font-size: clamp(60px, 19.5vw, 142px);
-  margin-left: -11.2px;
+font-size: clamp(60px, 19.5vw, 142px);
+    margin-left: -5.2px;
+        margin-top: 10px;
 }
 
 /* Нижняя строка — меньше, но тоже на всю ширину */
 .hero__title-line:last-child {
-  padding-bottom: 14px;
+    padding-bottom: 14px;
     margin-bottom: -16px;
-    font-size: clamp(32px, 10.8vw, 54px);
+    font-size: clamp(32px, 10.8vw, 49px);
     margin-top: 0.9rem;
+    letter-spacing: 3.1px;
+        margin-left: 2px;
 }
 
 .hero__title-stroke {
   color: transparent;
-  -webkit-text-stroke: clamp(1px, 0.2vw, 2.5px) var(--color-ink);
+  -webkit-text-stroke: clamp(1px, 0.2vw, 1.5px) var(--color-ink);
 }
 
 /* Мобильная адаптация */
@@ -90,8 +93,7 @@
 }
 .hero__content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.2fr 1fr;
   margin-top: 28px;
   align-items: end;
 }
@@ -99,22 +101,23 @@
 .hero__role {
     font-family: var(--font-mono);
     color: var(--color-accent);
-    font-size: 29.1px;
+    font-size: 43.1px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    margin-bottom: 16px;
+    margin-bottom: 13px;
     font-weight: 900;
+    margin-top: -3px;
 }
 
 .hero__desc {
   font-size: clamp(18px, 2vw, 24px);
   color: #ffffff;
-  max-width: 520px;
+  max-width: 918px;
   line-height: 1.5;
 }
 
 .hero__desc strong {
-  color: var(--color-ink);
+  color: #e079ff;
   font-weight: 500;
 }
 

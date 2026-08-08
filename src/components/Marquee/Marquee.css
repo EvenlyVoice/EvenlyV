@@ -12,12 +12,12 @@
 }
 
 .marquee__item {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(20px, 3vw, 36px);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 16px;
+     font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(20px, 3vw, 24px);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 16px;
 }
 
 .marquee.lime .marquee__item {
