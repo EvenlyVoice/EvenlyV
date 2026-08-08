@@ -46,14 +46,11 @@
 }
 
 .work-card.large {
-  grid-column: 1 / 1;
+  grid-column: 1 / -1;   /* было 1 / 1 → стало «на всю ширину» */
 }
 
-.work-card__image-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+.work-card.large .work-card__image-wrapper {
+  aspect-ratio: 16 / 7;  /* широкая карточка */
 }
 
 .work-card.large .work-card__image-wrapper {
@@ -61,7 +58,7 @@
 }
 
 .work-card:not(.large) .work-card__image-wrapper {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 6 / 5;
 }
 
 .work-card__image {
@@ -70,10 +67,12 @@
   object-fit: cover;
   filter: grayscale(0.3);
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s;
+  border-radius: 20px;
+    outline: 2px solid #ebe7d9;
 }
 
 .work-card:hover .work-card__image {
-  transform: scale(1.05);
+  transform: scale(1.02);
   filter: grayscale(0);
 }
 
@@ -92,7 +91,7 @@
   border-radius: 999px;
 }
 
-.work-card__arrow {
+/* .work-card__arrow {
   position: absolute;
   bottom: 24px;
   right: 24px;
@@ -111,7 +110,7 @@
 
 .work-card:hover .work-card__arrow {
   transform: translateY(0);
-}
+} */
 
 .work-card__meta {
   display: flex;

@@ -6,38 +6,34 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 25px;
+  /* ГЛАВНОЕ: пропорция 12:14 как у карты пикселей,
+     раньше было 20×20 (квадрат) — стрелка плющилась и хвостик уезжал вбок */
+  width: 22px;
+  height: 26px;
   pointer-events: none;
   z-index: 99999;
-  transform: translate(-2px, -2px);
-  /* Ключевые свойства для пикселизации */
+  will-change: transform;
   image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor;
 }
 
 .pixel-cursor svg {
+  display: block;
   width: 100%;
   height: 100%;
-  /* Убираем сглаживание */
   shape-rendering: crispEdges;
-  filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.8));
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.6));
 }
 
-.pixel-cursor.clicking {
-  transform: translate(-2px, -2px) scale(0.8);
-}
+/* Клик: используем отдельное свойство scale,
+   потому что transform перезаписывается JS-ом при движении */
 
-.pixel-cursor.hovering .cursor-body {
-  fill: #f046ff;
-}
+   
 
+/* На мобильных возвращаем обычный курсор */
 @media (max-width: 768px) {
   * {
     cursor: auto !important;
   }
-  
   .pixel-cursor {
     display: none;
   }

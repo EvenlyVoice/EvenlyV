@@ -18,7 +18,7 @@ const PIXEL_MAP = [
   [0,0,0,0,0,0,0,1,1,0,0,0],
 ];
 
-const PX = 2; // размер одного пикселя
+const PX = 3; // размер одного пикселя
 
 export const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -26,6 +26,12 @@ export const CustomCursor = () => {
   useEffect(() => {
     const cursor = cursorRef.current;
     if (!cursor) return;
+
+    // берём твой акцентный цвет для hover
+    const accent =
+      getComputedStyle(document.documentElement)
+        .getPropertyValue('--color-accent')
+        .trim() || '#ffffff';
 
     const onMove = (e: MouseEvent) => {
       cursor.style.transform = `translate(${e.clientX - 2}px, ${e.clientY - 2}px)`;
@@ -37,11 +43,13 @@ export const CustomCursor = () => {
       cursor.classList.toggle('hovering', !!t.closest('a, button, [data-hover], input'));
     };
 
-    // ШУРШАНИЕ: случайные пиксели внутри курсора меняют оттенок
+    // ШУРШАНИЕ: случайные пиксели меняют оттенок
     const bodies = cursor.querySelectorAll<SVGRectElement>('.cursor-body');
     const noise = setInterval(() => {
+      const hovering = cursor.classList.contains('hovering');
+      const base = hovering ? accent : '#ffffff';
       bodies.forEach((rect) => {
-        rect.setAttribute('fill', Math.random() < 0.2 ? '#0c0c0c' : '#ffffff');
+        rect.setAttribute('fill', Math.random() < 0.2 ? '#0c0c0c' : base);
       });
     }, 90);
 

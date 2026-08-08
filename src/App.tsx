@@ -24,7 +24,7 @@ export default function App() {
         <main>
           <Navigation />
           <Hero />
-          <Marquee text="ИДЕЯ • МАКЕТ • ДИЗАЙН • КОД •" />
+          <Marquee text="ИДЕЯ • МАКЕТ • ДИЗАЙН • КОД • 3D •" />
           <Works />
           <Process />
           <Marquee text="IDEA • DESIGN • CODE • MOTION •" reverse lime />
