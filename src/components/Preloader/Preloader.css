@@ -1,0 +1,122 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  overflow: hidden;
+}
+
+/* Матричный дождь на фоне */
+.preloader__matrix {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.preloader__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+}
+
+/* Тело занимает ВСЮ оставшуюся высоту экрана */
+.preloader__body {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* ровно половины */
+  gap: 48px;
+  flex: 1;                         /* растягиваем на всю высоту */
+  min-height: 0;
+  padding-top: 24px;
+}
+
+/* ===== ПРОЦЕНТЫ СЛЕВА, ПРИЖАТЫ ВНИЗ ===== */
+.preloader__counter {
+  align-self: end;   /* ← ключевая строка: низ слева */
+}
+
+.preloader__number {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(64px, 14vw, 180px);
+  line-height: 1;
+}
+
+.preloader__percent {
+  color: var(--color-accent);
+}
+
+.preloader__bar {
+  height: 2px;
+  background: var(--color-line);
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.preloader__progress {
+  height: 100%;
+  background: var(--color-accent);
+  transition: width 0.1s linear;
+}
+
+/* ===== ТЕРМИНАЛ СПРАВА, НА ВСЮ ВЫСОТУ ===== */
+.preloader__terminal {
+  align-self: stretch;   /* ← ключевая строка: от верха до низа правой половины */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--color-accent);
+  text-shadow: 0 0 8px currentColor;
+  /* border: 1px solid var(--color-line); */
+  border-radius: 8px;
+  padding: 20px 24px;
+  /* background: rgba(0, 0, 0, 0.45); */
+  backdrop-filter: blur(2px);
+}
+
+.preloader__line {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: lineIn 0.15s ease-out;
+}
+
+@keyframes lineIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.preloader__blink {
+  animation: plBlink 0.8s step-end infinite;
+}
+
+@keyframes plBlink {
+  50% { opacity: 0; }
+}
+
+/* ===== МОБИЛКА ===== */
+@media (max-width: 768px) {
+  .preloader__body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .preloader__terminal {
+    align-self: auto;
+    height: 32vh;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,29 @@
+:root {
+  /* Цвета */
+  --color-bg: #0e0d0b;
+  --color-ink: #ede7da;
+  --color-accent: #d651ff;
+  --color-muted: #ff9fff;
+  --color-line: rgba(237, 231, 218, 0.14);
+  --color-paper: #ece7dc;
+  --color-paper-ink: #14120e;
+  --color-orange: #ff5c1a;
+  
+  /* Шрифты */
+  --font-display: 'Unbounded', sans-serif;
+  --font-body: 'Golos Text', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Отступы */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 96px;
+  
+   --font-pixel: 'VT323', monospace;
+   
+  /* Контейнер */
+  --container-width: 1280px;
+  --container-padding: 8vw;
+}
