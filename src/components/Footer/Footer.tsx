@@ -1,33 +1,44 @@
 import './Footer.css';
+import { useLanguage } from '../../i18n';
 
 export const Footer = () => {
+  const { t, lang } = useLanguage();
+
+  const timeLocale = lang === 'ru' ? 'ru-RU' : 'en-US';
+  const currentTime = new Date().toLocaleTimeString(timeLocale, {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  const socials = ['Telegram', 'GitHub', 'Behance', 'Dribbble'];
+
   return (
     <footer id="contact" className="footer">
       <div className="container">
         <h2 className="footer__title">
-          Есть идея?<br/>
-          <span className="footer__title-stroke">Соберем проект</span>
+          {t('footerTitle1')}<br/>
+          <span className="footer__title-stroke">{t('footerTitle2')}</span>
         </h2>
-        
+
         <div className="footer__cta-row">
           <a href="https://t.me/EvenlyV_Chanel" className="footer__email" data-hover>
-            TG: @evenlyV <span>↗</span>
+            {t('footerTg')} <span>↗</span>
           </a>
-          
+
           <div className="footer__socials">
-            {['Telegram', 'GitHub', 'Behance', 'Dribbble'].map(social => (
+            {socials.map(social => (
               <a key={social} href="#" className="social-link" data-hover>
                 {social}
               </a>
             ))}
           </div>
         </div>
-        
+
         <div className="footer__bottom">
-          <span>© 2026 EvenlyV</span>
-          <span>Сделано руками + код</span>
-          <span>Москва · {new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}</span>
-          <a href="#top">Наверх ↑</a>
+          <span>{t('footerCopy')}</span>
+          <span>{t('footerMade')}</span>
+          <span>{t('footerCity')} · {currentTime}</span>
+          <a href="#top">{t('footerUp')}</a>
         </div>
       </div>
     </footer>

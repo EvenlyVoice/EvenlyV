@@ -1,5 +1,5 @@
 .footer {
-  padding: 128px var(--container-padding) 48px;
+  padding: 28px var(--container-padding) 48px;
   border-top: 1px solid var(--color-line);
 }
 
@@ -22,7 +22,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 32px;
-  margin-bottom: 96px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
 }
 

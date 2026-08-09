@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { LanguageProvider, useLanguage } from './i18n';
 import { CustomCursor } from './components/CustomCursor/CustomCursor';
 import { Preloader } from './components/Preloader/Preloader';
 import { Navigation } from './components/Navigation/Navigation';
@@ -10,28 +11,37 @@ import { Process } from './components/Process/Process';
 import { About } from './components/About/About';
 import { Footer } from './components/Footer/Footer';
 
-export default function App() {
+const AppContent = () => {
   const [loading, setLoading] = useState(true);
+  const { t } = useLanguage();
 
   return (
     <>
       <div className="noise-overlay" />
       <CustomCursor />
-      
+
       {loading && <Preloader onComplete={() => setLoading(false)} />}
 
       {!loading && (
         <main>
           <Navigation />
           <Hero />
-          <Marquee text="ИДЕЯ • МАКЕТ • ДИЗАЙН • КОД • 3D •" />
+          <Marquee text={t('marquee1')} />
           <Works />
           <Process />
-          <Marquee text="IDEA • DESIGN • CODE • MOTION •" reverse lime />
+          <Marquee text={t('marquee2')} reverse lime />
           <About />
           <Footer />
         </main>
       )}
     </>
+  );
+};
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

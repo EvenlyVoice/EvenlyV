@@ -17,7 +17,9 @@
   border-bottom: 1px solid var(--color-line);
 }
 
+/* Лого слева */
 .nav__logo {
+  order: 0;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 18px;
@@ -28,7 +30,12 @@
   color: var(--color-accent);
 }
 
+/* Ссылки — ровно по центру */
 .nav__links {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   gap: 32px;
 }
@@ -66,15 +73,79 @@
   transform-origin: left;
 }
 
-.nav__status {
+/* RU/EN — начало правой группы, прижата вправо */
+.nav__lang {
+  order: 2;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.nav__lang-btn {
+  padding: 6px 10px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.3s ease, border-color 0.1s ease;
+}
+
+.nav__lang-btn:hover {
+  border: 1px solid #d651ff;
+}
+
+.nav__lang-btn.active {
+  opacity: 0.7;
+  border-color: currentColor;
+}
+
+/* Статус — рядом со свитчером справа */
+.nav__status {
+  order: 3;
+  margin-left: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
   font-family: var(--font-mono);
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-muted);
+}
+
+.nav__status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* дорожка под надписью */
+.nav__status-bar {
+  position: relative;
+  height: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* бегущая заливка */
+.nav__status-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent);
+  animation: status-load 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes status-load {
+  0%   { transform: scaleX(0); transform-origin: 0 50%; }
+  45%  { transform: scaleX(1); transform-origin: 0 50%; }
+  55%  { transform: scaleX(1); transform-origin: 100% 50%; }
+  100% { transform: scaleX(0); transform-origin: 100% 50%; }
 }
 
 .nav__dot {
@@ -90,7 +161,9 @@
   50% { opacity: 0.4; }
 }
 
+/* Бургер */
 .nav__burger {
+  order: 4;
   display: none;
   flex-direction: column;
   gap: 6px;
@@ -112,6 +185,7 @@
   transform: translateY(-3.5px) rotate(-45deg);
 }
 
+/* Мобильное меню */
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -144,12 +218,27 @@
   color: var(--color-accent);
 }
 
+.mobile-menu__lang {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* Чтобы центральные ссылки не наезжали на правую группу */
+@media (max-width: 1100px) {
+  .nav__links { gap: 20px; }
+  .nav__status { display: none; }
+}
+
+/* Мобилка */
 @media (max-width: 768px) {
   .nav__links,
-  .nav__status {
+  .nav__status,
+  .nav__lang {
     display: none;
   }
-  
+
   .nav__burger {
     display: flex;
   }

@@ -2,6 +2,7 @@
   padding: 27px var(--container-padding);
   background: var(--color-paper);
   color: var(--color-paper-ink);
+  padding-bottom: 98px;
 }
 
 .process__label {
@@ -82,7 +83,7 @@
 .process__visualizer {
   position: sticky;
   top: 128px;
-  height: 500px;
+  height: 435px;
 }
 
 .stage-panel {

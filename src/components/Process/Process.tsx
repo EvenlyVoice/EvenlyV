@@ -1,25 +1,26 @@
 import { useState } from 'react';
 import './Process.css';
-
-const STAGES = [
-  { title: 'Макет', desc: 'Wireframes, Figma, CJM, User Flow' },
-  { title: 'Дизайн-система', desc: 'Tokens, Typography, UI Kit, Components' },
-  { title: 'Вёрстка', desc: 'React, Semantic HTML, A11y, Pixel Perfect' },
-  { title: 'Анимации', desc: 'GSAP, Framer Motion, Micro-interactions' },
-  { title: 'Деплой', desc: 'CI/CD, Vercel, Analytics, Monitoring' },
-];
+import { useLanguage } from '../../i18n';
 
 export const Process = () => {
+  const { t } = useLanguage();
   const [activeStage, setActiveStage] = useState(0);
+
+  const STAGES = [
+    { title: t('stage1Title'), desc: t('stage1Desc') },
+    { title: t('stage2Title'), desc: t('stage2Desc') },
+    { title: t('stage3Title'), desc: t('stage3Desc') },
+    { title: t('stage4Title'), desc: t('stage4Desc') },
+    { title: t('stage5Title'), desc: t('stage5Desc') },
+  ];
 
   return (
     <section id="process" className="process">
       <div className="container">
-        <span className="process__label">(02) Процесс</span>
-        <h2 className="process__title">От макета<br/>до выкладки</h2>
+        <span className="process__label">{t('processLabel')}</span>
+        <h2 className="process__title">{t('processTitle1')}<br/>{t('processTitle2')}</h2>
 
         <div className="process__grid">
-          {/* Steps */}
           <div className="process__steps">
             {STAGES.map((stage, index) => (
               <div
@@ -36,9 +37,7 @@ export const Process = () => {
             ))}
           </div>
 
-          {/* Visualizer */}
           <div className="process__visualizer">
-            
             {/* Stage 1: Wireframe */}
             <div className={`stage-panel stage-wireframe ${activeStage === 0 ? 'active' : ''}`}>
               <div className="wireframe-browser">
@@ -51,7 +50,7 @@ export const Process = () => {
                 <div className="wireframe-block" style={{ top: 208, left: '5%', width: '40%', height: 80, animationDelay: '0.3s' }} />
                 <div className="wireframe-block" style={{ top: 208, right: '5%', width: '40%', height: 80, animationDelay: '0.5s' }} />
                 <div className="wireframe-cursor">
-                  <span className="wireframe-cursor-label">Я</span>
+                  <span className="wireframe-cursor-label">{t('processWireframeMe')}</span>
                 </div>
               </div>
             </div>
@@ -60,7 +59,7 @@ export const Process = () => {
             <div className={`stage-panel stage-design ${activeStage === 1 ? 'active' : ''}`}>
               <div className="design-grid">
                 <div className="design-card">
-                  <span className="design-card__label">Palette</span>
+                  <span className="design-card__label">{t('processPalette')}</span>
                   <div className="swatches">
                     <div className="swatch dark" />
                     <div className="swatch light" />
@@ -68,17 +67,17 @@ export const Process = () => {
                   </div>
                 </div>
                 <div className="design-card">
-                  <span className="design-card__label">Type Scale</span>
+                  <span className="design-card__label">{t('processTypeScale')}</span>
                   <div className="type-scale">
                     <span className="large">Aa</span>
                     <span className="medium">Aa</span>
                   </div>
                 </div>
                 <div className="design-card full">
-                  <span className="design-card__label">UI Kit</span>
+                  <span className="design-card__label">{t('processUiKit')}</span>
                   <div className="ui-kit">
-                    <button className="ui-button">Button</button>
-                    <div className="ui-input">Input field...</div>
+                    <button className="ui-button">{t('processButton')}</button>
+                    <div className="ui-input">{t('processInput')}</div>
                   </div>
                 </div>
               </div>
@@ -101,13 +100,13 @@ export const Process = () => {
                   &nbsp;&nbsp;<span className="token-keyword">return</span> &lt;<span className="token-tag">section</span>&gt;
                 </div>
                 <div className="code-line" style={{ animationDelay: '0.7s' }}>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Hello World&lt;/h1&gt;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;{t('processCodeHello')}&lt;/h1&gt;
                 </div>
                 <div className="code-line" style={{ animationDelay: '0.9s' }}>
                   &nbsp;&nbsp;&lt;/<span className="token-tag">section</span>&gt;
                 </div>
                 <div className="code-line" style={{ animationDelay: '1.1s' }}>
-                  {'}'} <span className="token-comment">// pixel perfect ✓</span>
+                  {'}'} <span className="token-comment">{t('processCodeComment')}</span>
                   <span className="code-caret blink" />
                 </div>
               </div>
@@ -125,16 +124,15 @@ export const Process = () => {
             <div className={`stage-panel stage-deploy ${activeStage === 4 ? 'active' : ''}`}>
               <div className="deploy-badge">
                 <span className="deploy-dot" />
-                LIVE
+                {t('processLive')}
               </div>
               <div className="deploy-line">$ git push origin main</div>
-              <div className="deploy-line dim">→ 3 commits pushed successfully</div>
+              <div className="deploy-line dim">{t('processCommits')}</div>
               <div className="deploy-line">$ npm run build</div>
-              <div className="deploy-line success">✓ Build completed in 4.2s</div>
+              <div className="deploy-line success">{t('processBuild')}</div>
               <div className="deploy-line">$ vercel deploy --prod</div>
-              <div className="deploy-link">🔗 https://EvenlyV.dev</div>
+              <div className="deploy-link">{t('processLink')}</div>
             </div>
-
           </div>
         </div>
       </div>

@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react';
 import './Navigation.css';
-
-const LINKS = [
-  { name: 'Работы', href: '#works' },
-  { name: 'Процесс', href: '#process' },
-  { name: 'Обо мне', href: '#about' },
-  { name: 'Контакт', href: '#contact' },
-];
+import { useLanguage } from '../../i18n';
 
 export const Navigation = () => {
+  const { t, lang, setLang } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -17,6 +12,13 @@ export const Navigation = () => {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const LINKS = [
+    { name: t('navWorks'), href: '#works' },
+    { name: t('navProcess'), href: '#process' },
+    { name: t('navAbout'), href: '#about' },
+    { name: t('navContact'), href: '#contact' },
+  ];
 
   return (
     <>
@@ -27,21 +29,39 @@ export const Navigation = () => {
 
         <div className="nav__links">
           {LINKS.map(link => (
-            <a key={link.name} href={link.href} className="nav__link">
+            <a key={link.href} href={link.href} className="nav__link">
               {link.name}
             </a>
           ))}
         </div>
 
-        <div className="nav__status">
+            <div className="nav__status">
+        <span className="nav__status-row">
           <span className="nav__dot" />
-          Открыт к проектам
+          {t('navStatus')}
+        </span>
+        <span className="nav__status-bar" />
+      </div>
+
+        <div className="nav__lang">
+          <button
+            className={`nav__lang-btn ${lang === 'ru' ? 'active' : ''}`}
+            onClick={() => setLang('ru')}
+          >
+            RU
+          </button>
+          <button
+            className={`nav__lang-btn ${lang === 'en' ? 'active' : ''}`}
+            onClick={() => setLang('en')}
+          >
+            EN
+          </button>
         </div>
 
-        <button 
+        <button
           className={`nav__burger ${isOpen ? 'open' : ''}`}
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Меню"
+          aria-label={t('navMenu')}
         >
           <span className="nav__burger-line" />
           <span className="nav__burger-line" />
@@ -50,15 +70,30 @@ export const Navigation = () => {
 
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         {LINKS.map(link => (
-          <a 
-            key={link.name} 
-            href={link.href} 
+          <a
+            key={link.href}
+            href={link.href}
             className="mobile-menu__link"
             onClick={() => setIsOpen(false)}
           >
             {link.name}
           </a>
         ))}
+
+        <div className="mobile-menu__lang">
+          <button
+            className={`nav__lang-btn ${lang === 'ru' ? 'active' : ''}`}
+            onClick={() => setLang('ru')}
+          >
+            RU
+          </button>
+          <button
+            className={`nav__lang-btn ${lang === 'en' ? 'active' : ''}`}
+            onClick={() => setLang('en')}
+          >
+            EN
+          </button>
+        </div>
       </div>
     </>
   );

@@ -74,6 +74,7 @@
 .work-card:hover .work-card__image {
   transform: scale(1.02);
   filter: grayscale(0);
+    outline: 2px solid #d651ff;
 }
 
 .work-card__badge {
