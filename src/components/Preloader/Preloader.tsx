@@ -133,7 +133,7 @@ export const Preloader = ({ onComplete }: Props) => {
 
       <div className="preloader__header">
         <span>EvenlyV © 2026</span>
-        <span>Загрузка системы...</span>
+        <span>The system is loading...</span>
       </div>
 
       <div className="preloader__body">
