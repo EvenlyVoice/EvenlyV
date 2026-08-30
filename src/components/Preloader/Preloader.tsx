@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './Preloader.css';
 
-// Строки "системного кода", которые бегут в терминале (ровно 18 штук)
+// Я немного почистил массив, убрав дублирующиеся строки, которые были в твоём коде
 const BOOT_LINES = [
   '> init system.core v2.6 ...',
   '> loading modules: [design, code, motion]',
@@ -20,14 +20,6 @@ const BOOT_LINES = [
   '> lighthouse score: 98/100',
   '> deploying to production ...',
   '> starting interface ...',
-  '> connecting to portfolio.db',
-  '> fetching projects [5/5] ...',
-  '> optimizing animations ... 60fps',
-  '> security check ... PASSED',
-  '> injecting styles.css',
-  '> gsap.registerPlugin(ScrollTrigger)',
-  '> rendering pixels ...',
-  '> lighthouse score: 98/100',
   '> ACCESS GRANTED ✔',
 ];
 
@@ -43,7 +35,7 @@ export const Preloader = ({ onComplete }: Props) => {
   // ===== СЧЕТЧИК ПРОЦЕНТОВ =====
   useEffect(() => {
     const start = Date.now();
-    const duration = 3000; // ← общее время прелоадера (3 секунды)
+    const duration = 3000; 
 
     const timer = setInterval(() => {
       const progress = Math.min((Date.now() - start) / duration, 1);
@@ -51,20 +43,19 @@ export const Preloader = ({ onComplete }: Props) => {
 
       if (progress >= 1) {
         clearInterval(timer);
-        setTimeout(onComplete, 600); // Небольшая задержка перед скрытием прелоадера
+        setTimeout(onComplete, 600);
       }
     }, 16);
 
     return () => clearInterval(timer);
   }, [onComplete]);
 
-  // ===== САМ КОД (БЕЗ ПОВТОРОВ) =====
+  // ===== САМ КОД =====
   useEffect(() => {
     let i = 0;
-    const speed = 110; // ← 18 строк * 150мс = 2700мс (успеет напечататься до конца)
+    const speed = 110; 
 
     const timer = setInterval(() => {
-      // ГЛАВНОЕ ИСПРАВЛЕНИЕ: Останавливаем таймер, когда строки закончились
       if (i >= BOOT_LINES.length) {
         clearInterval(timer);
         return;
@@ -103,7 +94,6 @@ export const Preloader = ({ onComplete }: Props) => {
     };
 
     const rainColor = hexToRgba(accent, 0.5);
-
     const chars = 'アカサタナハマヤラ0123456789<>/{}=+*#';
     const fontSize = 14;
     const columns = Math.floor(canvas.width / fontSize);
@@ -138,6 +128,15 @@ export const Preloader = ({ onComplete }: Props) => {
 
       <div className="preloader__body">
         <div className="preloader__counter">
+          
+          {/* 👇 НОВЫЙ БЛОК С ТЕКСТОМ И ТОЧКАМИ 👇 */}
+          <div className="preloader__loading-text">
+            Loading portfolio
+            <span className="dot">.</span>
+            <span className="dot">.</span>
+            <span className="dot">.</span>
+          </div>
+
           <div className="preloader__number">
             {count}<span className="preloader__percent">%</span>
           </div>
@@ -145,6 +144,7 @@ export const Preloader = ({ onComplete }: Props) => {
             <div className="preloader__progress" style={{ width: `${count}%` }} />
           </div>
         </div>
+
         <div className="preloader__terminal">
           {lines.map((line, index) => (
             <div key={index} className="preloader__line">{line}</div>
