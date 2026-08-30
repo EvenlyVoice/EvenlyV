@@ -35,13 +35,19 @@ export const Navigation = () => {
           ))}
         </div>
 
-            <div className="nav__status">
-        <span className="nav__status-row">
-          <span className="nav__dot" />
-          {t('navStatus')}
-        </span>
-        <span className="nav__status-bar" />
-      </div>
+<div 
+  className="nav__status" 
+  onClick={() => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }}
+  style={{ cursor: 'pointer' }}
+>
+  <span className="nav__status-row">
+    <span className="nav__dot" />
+    {t('navStatus')}
+  </span>
+  <span className="nav__status-bar" />
+</div>
 
         <div className="nav__lang">
           <button

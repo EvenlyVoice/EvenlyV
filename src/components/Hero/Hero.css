@@ -195,7 +195,8 @@
   height: 150px;
   position: relative;
   transform-style: preserve-3d;
-  animation: cubeRotate 15s infinite linear;
+  /* Используем переменную вместо фиксированного значения */
+  animation: cubeRotate var(--cube-speed, 15s) infinite linear;
 }
 
 .cube__face {
@@ -247,9 +248,30 @@
     transform: rotateX(-15deg) rotateY(360deg) rotateZ(360deg);
   }
 }
+.cube-wrapper {
+  transition: transform 0.4s ease;
+}
+.cube-wrapper:hover {
+  transform: scale(1.08); /* Куб немного увеличивается */
+}
 
-.cube-wrapper:hover .cube {
-  animation: cubeRotate 25s infinite linear;
+.cube-wrapper:hover .cube__face {
+  background: linear-gradient(135deg, rgba(224, 121, 255, 0.25), rgba(224, 121, 255, 0.08));
+  border-color: #fff; /* Границы становятся белыми */
+  box-shadow: 0 0 50px rgba(224, 121, 255, 0.6),
+              inset 0 0 30px rgba(224, 121, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+.cube-wrapper:hover .cube__icon {
+  color: #fff; /* Иконки становятся белыми */
+  text-shadow: 0 0 25px rgba(224, 121, 255, 1);
+  transition: all 0.4s ease;
+}
+
+.cube-wrapper:hover .cube__label {
+  color: #fff;
+  transition: all 0.4s ease;
 }
 
 .cube__face::before {

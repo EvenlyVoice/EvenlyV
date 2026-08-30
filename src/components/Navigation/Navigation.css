@@ -119,6 +119,18 @@
   color: var(--color-muted);
 }
 
+.nav__status-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+}
+
+.nav__status-link:hover .nav__status {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
 .nav__status-row {
   display: flex;
   align-items: center;
