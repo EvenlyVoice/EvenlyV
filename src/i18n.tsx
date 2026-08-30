@@ -22,14 +22,14 @@ const ru = {
   heroName: 'Бондаревский Павел',
   heroRole: 'Дизайнер × Разработчик',
   heroDesc1Title: 'Полный цикл создания сайта:',
-  heroDesc1Text: 'интерфейс, макет, продакшен.',
+  heroDesc1Text: 'интерфейс, макет, помощь с продакшеном.',
   heroDesc2Title: 'Брендинг под ключ',
   heroDesc2Text: '— от 3D-визуализации до печати и web.',
   heroCta: 'Смотреть работы ↗',
 
   // Works
   worksLabel: '(01) Работы',
-  worksTitle1: 'Избранные',
+  worksTitle1: 'Мои',
   worksTitle2: 'проекты',
   worksNote: 'Каждый проект — от первого штриха до живого воплощения искусства.',
   work1Title: 'Myteacher.pro',

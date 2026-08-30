@@ -27,7 +27,7 @@ export const Works = () => {
             <a
               key={index}
               href="#"
-              className={`work-card ${project.large ? 'large' : ''}`}
+              // className={`work-card ${project.large ? 'large' : ''}`}
               data-hover
             >
               <div className="work-card__image-wrapper">
