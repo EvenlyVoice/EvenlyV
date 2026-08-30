@@ -15,7 +15,7 @@ export const Navigation = () => {
 
   const LINKS = [
     { name: t('navWorks'), href: '#works' },
-    { name: t('navProcess'), href: '#process' },
+    // { name: t('navProcess'), href: '#process' },
     { name: t('navAbout'), href: '#about' },
     { name: t('navContact'), href: '#contact' },
   ];

@@ -8,7 +8,7 @@ export const About = () => {
   const stats = [
     { value: '4+', label: t('stat1') },
     { value: '11', label: t('stat2') },
-    { value: '16', label: t('stat3') },
+    { value: '15+', label: t('stat3') },
     { value: '4',  label: t('stat4') },
   ];
 
@@ -32,8 +32,24 @@ export const About = () => {
             <h2 className="about__title">
               {t('aboutTitleStart')} <span className="about__highlight">{t('aboutTitleHighlight')}</span>.
             </h2>
-            <p className="about__text">{t('aboutText')}</p>
-
+            <div className="about__content">
+  <p className="about__text">{t('aboutText')}</p>
+  
+  <div className="about__skills">
+    <div className="about__skills-item">
+      <span className="about__skills-label">Frontend:</span>
+      <span className="about__skills-value">React, JavaScript, HTML, SCSS</span>
+    </div>
+    <div className="about__skills-item">
+      <span className="about__skills-label">Design:</span>
+      <span className="about__skills-value">Figma, Adobe CC</span>
+    </div>
+    <div className="about__skills-item">
+      <span className="about__skills-label">3D:</span>
+      <span className="about__skills-value">Cinema 4D, Blender, 3ds Max</span>
+    </div>
+  </div>
+</div>
             <div className="about__stats">
               {stats.map((stat, index) => (
                 <div key={index} className="stat-item">

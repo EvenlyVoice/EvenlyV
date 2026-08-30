@@ -6,15 +6,15 @@ export type Lang = 'ru' | 'en';
 const ru = {
   // Nav
   navWorks: 'Работы',
-  navProcess: 'Процесс',
+  // navProcess: 'Процесс',
   navAbout: 'Обо мне',
   navContact: 'Контакт',
   navStatus: 'Открыт к проектам',
   navMenu: 'Меню',
 
   // Marquee
-  marquee1: 'ИДЕЯ • МАКЕТ • ДИЗАЙН • КОД • 3D •',
-  marquee2: 'ИДЕЯ • ДИЗАЙН • КОД • ДВИЖЕНИЕ •',
+  marquee1: 'ИДЕЯ • МАКЕТ • ДИЗАЙН • КОД • 3D • ТИПОГРАФИЯ',
+  marquee2: 'ИДЕЯ • МАКЕТ • ДИЗАЙН • КОД • 3D • ТИПОГРАФИЯ',
 
   // Hero
   heroMeta1: 'Портфолио — 2026',
@@ -22,20 +22,29 @@ const ru = {
   heroName: 'Бондаревский Павел',
   heroRole: 'Дизайнер × Разработчик',
   heroDesc1Title: 'Полный цикл создания сайта:',
-  heroDesc1Text: 'интерфейс, макет, помощь с продакшеном.',
+  heroDesc1Text: 'макет, интерфейс, UX/UI, реализация.',
   heroDesc2Title: 'Брендинг под ключ',
-  heroDesc2Text: '— от 3D-визуализации до печати и web.',
+  heroDesc2Text: '— от типографии, до 3D-визуализации и сайта.',
   heroCta: 'Смотреть работы ↗',
 
   // Works
   worksLabel: '(01) Работы',
-  worksTitle1: 'Мои',
-  worksTitle2: 'проекты',
+  worksTitle1: 'Мои проекты',
+  worksTitle2: '',
   worksNote: 'Каждый проект — от первого штриха до живого воплощения искусства.',
   work1Title: 'Myteacher.pro',
-  work1Category: 'Сайт для репетитора',
-  work2Title: 'Jewelry',
-  work2Category: '3D · Печать',
+  work1Category: 'Платформа для репетиторства',
+  work2Title: 'ArtFamily.pro',
+  work2Category: 'Сайт - портфолио художников',
+  work3Title: 'Gh-games.com',
+  work3Category: 'Сайт для команды разработчиков',
+  work4Title: 'Gamedev',
+  work4Category: '3D Текстурирование, брендинг проекта',
+  work5Title: 'Projects',
+  work5Category: '3D проектирование ювелирных изделий',
+  work6Title: 'create brand',
+  work6Category: 'Брендинг с нуля, подготовка к печати',
+
 
   // Process
   processLabel: '(02) Процесс',
@@ -67,18 +76,18 @@ const ru = {
   // About
   aboutSticker1: 'ДА ДА ДА, ЭТО Я',
   aboutSticker2: 'ПРОСТО ТУТ СЛИШКОМ ВАЖНЫЙ',
-  aboutLabel: '(03) Обо мне',
+  aboutLabel: '(02) Обо мне',
   aboutTitleStart: '4 года я закрываю полный цикл:',
   aboutTitleHighlight: 'идея → готовый дизайн → реализация',
-  aboutText: 'Начинал и учился как художник, влюбился в дизайн, потом — в код. Сегодня делаю сайты, брендинг, типографику, 3D-визуализацию, которые выглядят как хороший арт-дирекшн.',
+  aboutText: 'По образованию художник, но влюбился в дизайн, а затем — в код. Сегодня создаю сайты, брендинг и 3D-визуализацию с сильным арт-дирекшеном и вниманием к типографике.',
   stat1: 'Лет опыта',
   stat2: 'Проектов',
-  stat3: 'Отраслей',
-  stat4: 'Образование и специальности',
+  stat3: 'Используемых программ',
+  stat4: 'Образования и специальности',
 
   // Footer
   footerTitle1: 'Есть идея?',
-  footerTitle2: 'Соберем проект',
+  footerTitle2: 'Соберем проект!',
   footerTg: 'TG: @evenlyV',
   footerCopy: '© 2026 EvenlyV',
   footerMade: 'Сделано руками + код',
@@ -89,7 +98,7 @@ const ru = {
 const en: typeof ru = {
   // Nav
   navWorks: 'Works',
-  navProcess: 'Process',
+  // navProcess: 'Process',
   navAbout: 'About',
   navContact: 'Contact',
   navStatus: 'Open for projects',
@@ -112,13 +121,21 @@ const en: typeof ru = {
 
   // Works
   worksLabel: '(01) Works',
-  worksTitle1: 'Selected',
-  worksTitle2: 'projects',
+  worksTitle1: 'My projects',
+  worksTitle2: '',
   worksNote: 'Every project — from the first stroke to a living work of art.',
   work1Title: 'Myteacher.pro',
   work1Category: 'Tutor website',
-  work2Title: 'Jewelry',
-  work2Category: '3D · Print',
+  work2Title: 'ArtFamily.pro',
+  work2Category: 'WebSite portfolio',
+  work3Title: 'Gh-games.com',
+  work3Category: 'Сайт для команды разработчиков',
+  work4Title: 'Jewelry',
+  work4Category: '3D · Печать',
+  work5Title: 'Projects',
+  work5Category: '3D Визуализация, создание подзаказ',
+  work6Title: 'brand/logotype',
+  work6Category: 'брендинг с нуля, подготовка к печати',
 
   // Process
   processLabel: '(02) Process',
