@@ -1,7 +1,10 @@
 .works {
   padding: 50px var(--container-padding);
 }
-
+.works {
+  /* Заставляет браузер останавливать скролл на 120px выше начала секции */
+  scroll-margin-top: -70px; 
+}
 .works__header {
   display: flex;
   justify-content: space-between;

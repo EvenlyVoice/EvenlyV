@@ -10,7 +10,11 @@ export const Footer = () => {
     minute: '2-digit',
   });
 
-  const socials = ['Telegram', 'GitHub', 'Behance', 'Dribbble'];
+  // Массив объектов: имя для отображения и реальная ссылка
+  const socials = [
+    { name: 'VK', url: 'https://vk.ru/evenlyv' },
+    { name: 'GitHub', url: 'https://github.com/EvenlyVoice' }
+  ];
 
   return (
     <footer id="contact" className="footer">
@@ -21,14 +25,27 @@ export const Footer = () => {
         </h2>
 
         <div className="footer__cta-row">
-          <a href="https://t.me/EvenlyV_Chanel" className="footer__email" data-hover>
+          <a 
+            href="https://t.me/EvenlyV_Chanel" 
+            className="footer__email" 
+            data-hover 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
             {t('footerTg')} <span>↗</span>
           </a>
 
           <div className="footer__socials">
             {socials.map(social => (
-              <a key={social} href="#" className="social-link" data-hover>
-                {social}
+              <a 
+                key={social.name} 
+                href={social.url} 
+                className="social-link" 
+                data-hover
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                {social.name}
               </a>
             ))}
           </div>

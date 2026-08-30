@@ -1,6 +1,10 @@
 .about {
   padding: 28px var(--container-padding);
 }
+.about {
+  /* Заставляет браузер останавливать скролл на 120px выше начала секции */
+  scroll-margin-top: 43px; 
+}
 
 .about__grid {
   display: grid;
@@ -156,6 +160,10 @@
     gap: 32px;
   }
   
+.about__skills-item::before {
+  display: none;
+}
+
   .about__sticker {
     display: none;
   }

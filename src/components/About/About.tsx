@@ -46,7 +46,7 @@ export const About = () => {
     </div>
     <div className="about__skills-item">
       <span className="about__skills-label">3D:</span>
-      <span className="about__skills-value">Cinema 4D, Blender, 3ds Max</span>
+      <span className="about__skills-value">Cinema 4D, Blender, Unreal Engine</span>
     </div>
   </div>
 </div>
