@@ -58,6 +58,7 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-muted);
+    background-color: #ff9fff0d;
     transition: all 0.3s;
 }
 

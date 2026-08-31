@@ -290,11 +290,60 @@
 /* ===================================
    АДАПТИВ
    =================================== */
+@media (max-width: 1465px) {
+
+  .btn-primary {
+  font-size: 17px;
+      padding: 16px 34px;
+}
+
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0px;
+  align-items: center;
+  margin-bottom: 11px;
+}
+  .hero__visual-section {
+    /* display: none; */
+    padding-top: 0px;
+  }
+
+}
+
+@media (max-width: 1347px) {
+.btn-primary {
+  font-size: 15px;
+      padding: 16px 40px;
+}
+
+
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0px;
+  align-items: center;
+  margin-bottom: 11px;
+}
+  .hero__visual-section {
+    /* display: none; */
+    padding-top: 0px;
+  }
+
+}
+
+@media (max-width: 1303px) {
+    .hero__visual-section {
+    display: none;
+
+  }
+}
 
 /* Планшеты и меньше - скрываем куб и кнопку */
 @media (max-width: 1302px) {
   .hero__visual-section {
-    display: none;
+    /* display: none; */
+    padding-top: 0px;
   }
 
   .hero__layout {
